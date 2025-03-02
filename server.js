@@ -67,18 +67,18 @@ app.post("/api/notes", async (req, res) => {
 });
 
 // API to retrieve a note by unique ID
-// app.get("/api/notes/:uniqueId", async (req, res) => {
-//   const { uniqueId } = req.params;
-//   try {
-//     const note = await Note.findOne({ uniqueId });
-//     if (!note) {
-//       return res.status(404).json({ message: "Note not found" });
-//     }
-//     res.json(note);
-//   } catch (err) {
-//     res.status(500).json({ message: "Error fetching note" });
-//   }
-// });
+app.get("/api/notes/:uniqueId", async (req, res) => {
+  const { uniqueId } = req.params;
+  try {
+    const note = await Note.findOne({ uniqueId });
+    if (!note) {
+      return res.status(404).json({ message: "Note not found" });
+    }
+    res.json(note);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching note" });
+  }
+});
 
 //module.exports = app;
 
