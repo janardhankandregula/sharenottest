@@ -8,14 +8,14 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB URI (replace with your own credentials)
-const mongoURI =
-  "mongodb+srv://janardhank134:OI3pWU8nyCyZEOwc@cluster1.lmzjd.mongodb.net/?retryWrites=true&w=majority&appName=cluster1";
+// const mongoURI =
+//   "mongodb+srv://janardhank134:OI3pWU8nyCyZEOwc@cluster1.lmzjd.mongodb.net/?retryWrites=true&w=majority&appName=cluster1";
 
-// const mongoURI = process.env.MONGO_URI;
-// if (!mongoURI) {
-//   console.error("MONGODB_URI is not defined in the environment variables.");
-//   process.exit(1); // Exit the application if the URI is not set
-// }
+const mongoURI = process.env.MONGO_URI;
+if (!mongoURI) {
+  console.error("MONGODB_URI is not defined in the environment variables.");
+  process.exit(1); // Exit the application if the URI is not set
+}
 
 mongoose
   .connect(mongoURI)
