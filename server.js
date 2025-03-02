@@ -72,5 +72,5 @@ app.post("/api/notes", async (req, res) => {
 //module.exports = app;
 
 // Start the server
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 3201;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
