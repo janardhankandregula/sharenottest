@@ -4,8 +4,19 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
+// Allow requests from your frontend origin
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Replace with your frontend URL
+    methods: ["GET", "POST"], // Allow only specific HTTP methods
+    credentials: true, // Allow cookies and credentials
+  })
+);
+
+// Handle preflight requests for /api/notes
+app.options("/api/notes", cors());
 
 // MongoDB URI (replace with your own credentials)
 // const mongoURI =
