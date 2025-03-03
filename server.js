@@ -9,7 +9,7 @@ app.use(express.json());
 // Allow requests from your frontend origin
 app.use(
   cors({
-    origin: "http://localhost:3000", // Replace with your frontend URL
+    origin: ["http://localhost:3000", "https://frontend-sharenote.vercel.app"], // Allow both or, // Replace with your frontend URL
     methods: ["GET", "POST"], // Allow only specific HTTP methods
     credentials: true, // Allow cookies and credentials
   })
